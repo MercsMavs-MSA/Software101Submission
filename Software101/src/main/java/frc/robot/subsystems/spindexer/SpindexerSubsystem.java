@@ -30,8 +30,7 @@ public class SpindexerSubsystem extends SubsystemBase {
   }
 
   public void setSpindexerSpeed(double speed){
-    request.Velocity = speed;
-    spindexerMotor.setControl(request);
+    spindexerMotor.setControl(request.withVelocity(speed));
   }
 }
 
