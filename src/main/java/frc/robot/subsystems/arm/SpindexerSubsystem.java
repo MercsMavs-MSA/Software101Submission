@@ -19,7 +19,7 @@ public class SpindexerSubsystem extends SubsystemBase {
   public SpindexerSubsystem() {
     TalonFXConfiguration spindexerConfiguration = new TalonFXConfiguration();
     spindexerConfiguration.Slot0.kV = SpindexerConstants.SPINDEXER_KV;
-    spindexerConfiguration.Feedback.RotorToSensorRatio = SpindexerConstants.GEAR_RATIO;
+    spindexerConfiguration.Feedback.SensorToMechanismRatio = SpindexerConstants.GEAR_RATIO;
     spindexerConfiguration.CurrentLimits.StatorCurrentLimit = SpindexerConstants.STATOR_LIMIT;
     spindexerConfiguration.CurrentLimits.SupplyCurrentLimit = SpindexerConstants.SUPPLY_LIMIT;
     spindexerConfiguration.CurrentLimits.StatorCurrentLimitEnable = true;
