@@ -1,0 +1,16 @@
+//Reflection
+/*
+
+//What I learned
+1. The difference between relative and absolute encoders, which is that absolute encoders have limits (are bound), but relative encoders go on without limits, and they don't reset.
+2. I learned that power uses red/black wiring, and signal uses yellow/green wiring
+3. There are multiple ways to connect to the robot. One is with an ethernet cable to the roboRIO, and the other is with a wired connection of a usb to the roboRIO.
+4. You can use PhoenixTunerX to tune pid, and plot values on a graph for testing.
+5. PID stands for Proportional, Integral, and Derivative
+6. On a graph, when your P value is too high, there's more variance and oscillations, and the graph shifts up and down.
+
+//Goals for software in offseason
+My goals for software during offseason are to attend more trainings (201, 202, etc.) to better prepare myself for the upcoming season. I want to become more confident in my software skills and abilities through working on offseason projects.
+
+
+*/
