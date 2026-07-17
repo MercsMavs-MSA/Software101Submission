@@ -7,6 +7,8 @@ package frc.robot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import frc.robot.subsystems.arm.ArmConstants;
+import frc.robot.subsystems.arm.ArmSubsystem;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -34,12 +36,11 @@ public class RobotContainer {
    * PS4} controllers or {@link edu.wpi.first.wpilibj2.command.button.CommandJoystick Flight
    * joysticks}.
    */
+  private final ArmSubsystem arm = new ArmSubsystem();
+  private final CommandXboxController m_driverController = new CommandXboxController(ArmConstants.OperatorConstants.kDriverControllerPort);
   private void configureBindings() {
-    // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
-    
-
-    // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
-    // cancelling on release.
+    //Schedule runOnce() when a button is pressed
+    m_driverController.a().onTrue(arm.runOnce(() -> arm.goToPosition(ArmConstants.OperatorConstants.ARM_FINAL_POS)));
   }
 
   /**

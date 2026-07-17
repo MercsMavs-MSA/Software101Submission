@@ -8,9 +8,10 @@ import com.ctre.phoenix6.hardware.TalonFX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class ArmSubsystem extends SubsystemBase {
+  
   private final TalonFX armMotor = new TalonFX(ArmConstants.OperatorConstants.ARM_MOTOR_ID);
   private final PositionVoltage request = new PositionVoltage(0);
-  private final NeutralOut m_brake = new NeutralOut();
+    
   public ArmSubsystem() {
     TalonFXConfiguration configs = new TalonFXConfiguration();
     configs.Slot0.kP = ArmConstants.OperatorConstants.ARM_KP;
@@ -22,9 +23,11 @@ public class ArmSubsystem extends SubsystemBase {
     configs.CurrentLimits.SupplyCurrentLimitEnable = true;
     configs.CurrentLimits.StatorCurrentLimitEnable = true;
     armMotor.getConfigurator().apply(configs);
+    goToPosition(0);
   }
 
   public void goToPosition(double position) {
     armMotor.setControl(request.withPosition(position));
   }
+
 }

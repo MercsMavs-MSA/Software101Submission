@@ -15,9 +15,10 @@ package frc.robot.subsystems.arm;
 public final class ArmConstants {
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
-    public static final int ARM_MOTOR_ID = 67;
-    public static final float ARM_KP = 140;
-    public static final float ARM_KD = 0;
-    public static final float ARM_KG = 0;
+    public static final int ARM_MOTOR_ID = 67; //figure out what this is
+    public static final double ARM_KP = 140.0;
+    public static final double ARM_KD = 0.0;
+    public static final double ARM_KG = 0.0;
+    public static final double ARM_FINAL_POS = 0.2;
   }
 }
