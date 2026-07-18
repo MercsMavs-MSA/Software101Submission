@@ -18,8 +18,8 @@ public class ArmSubsystem extends SubsystemBase {
     configs.Slot0.kD = ArmConstants.OperatorConstants.ARM_KD;
     configs.Slot0.kG = ArmConstants.OperatorConstants.ARM_KG;
     configs.Feedback.SensorToMechanismRatio = 110.0;
-    configs.CurrentLimits.StatorCurrentLimit = 0; //CHANGE THIS
-    configs.CurrentLimits.SupplyCurrentLimit = 0; //CHANGE THIS
+    configs.CurrentLimits.StatorCurrentLimit = ArmConstants.OperatorConstants.ARM_STATOR;
+    configs.CurrentLimits.SupplyCurrentLimit = ArmConstants.OperatorConstants.ARM_SUPPLY;
     configs.CurrentLimits.SupplyCurrentLimitEnable = true;
     configs.CurrentLimits.StatorCurrentLimitEnable = true;
     armMotor.getConfigurator().apply(configs);

@@ -20,5 +20,7 @@ public final class ArmConstants {
     public static final double ARM_KD = 0.0;
     public static final double ARM_KG = 0.0;
     public static final double ARM_FINAL_POS = 0.2;
+    public static final double ARM_STATOR = 60.0;
+    public static final double ARM_SUPPLY = 30.0;
   }
 }
