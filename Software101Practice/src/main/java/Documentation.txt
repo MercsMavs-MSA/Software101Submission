@@ -1,0 +1,7 @@
+
+
+
+Coding a pivot subsystem allowed me to learn skills such as collecting PID and feed forward values, current limits, 
+and the gear ratio value, and incorperating it in my code. I alos learnt what each line of code in a basic subsystem 
+.java file and robot container file means, and how they interact. As I coded these, I also learnt how to implement
+good coding practices such as organization and following naming conventions.
