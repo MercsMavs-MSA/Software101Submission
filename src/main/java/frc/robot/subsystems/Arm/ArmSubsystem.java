@@ -22,13 +22,13 @@ public class ArmSubsystem extends SubsystemBase {
     cfg.Slot0.kP = Constants.ARM_KP;
     cfg.Slot0.kD = Constants.ARM_KD;
     cfg.Slot0.kG = Constants.ARM_KG;
-    cfg.Feedback.RotorToSensorRatio = Constants.GEAR_RATIO;
+    cfg.Feedback.SensorToMechanismRatio = Constants.GEAR_RATIO;
     cfg.CurrentLimits.StatorCurrentLimit = Constants.STATOR_CURRENT_LIMITS;
     cfg.CurrentLimits.SupplyCurrentLimit = Constants.SUPPLY_CURRENT_LIMITS;
     cfg.CurrentLimits.StatorCurrentLimitEnable = true;
     cfg.CurrentLimits.SupplyCurrentLimitEnable = true;
     cfg.MotorOutput.NeutralMode = NeutralModeValue.Brake;
-    cfg.MotorOutput.Inverted = InvertedValue.Clockwise_Positive;
+    cfg.MotorOutput.Inverted = InvertedValue.CounterClockwise_Positive;
     armMotor.getConfigurator().apply(cfg);
   }
  

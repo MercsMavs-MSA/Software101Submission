@@ -19,14 +19,13 @@ public final class Constants {
     public static final int kDriverControllerPort = 0;
   }
 
-  public static final int ARM_MOTOR_ID = 0;
-  public static final double ARM_KP = 0;
+  public static final int ARM_MOTOR_ID = 42;
+  public static final double ARM_KP = 25;
   public static final double ARM_KD = 0;
   public static final double ARM_KG = 0;
-  public static final double ARM_POS_1 = 0.05;
+  public static final double ARM_POS_1 = 0.23;
   public static final double ARM_POS_2 = 0;
-  public static final double GEAR_RATIO = 5.0/1.0;
-  public static final double STATOR_CURRENT_LIMITS = 0;
-  
-  public static final double SUPPLY_CURRENT_LIMITS = 0;
+  public static final double GEAR_RATIO = 24.0/1.0;
+  public static final double STATOR_CURRENT_LIMITS = 80;
+  public static final double SUPPLY_CURRENT_LIMITS = 40;
 }
