@@ -28,6 +28,9 @@ public final class Constants {
     public static final double kRotorToSensor = 36;
     public static final InvertedValue kInvert = InvertedValue.CounterClockwise_Positive;
 
+    public static final double kStatorCurrent = 60;
+    public static final double kSupplyCurrent = 30;
+
     public static final double kArmStowSetpoint = 0.00;
     public static final double kArmInSetpoint = 0.01;
     public static final double kArmOutSetpoint = 0.39;

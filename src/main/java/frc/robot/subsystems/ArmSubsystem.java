@@ -24,6 +24,11 @@ public class ArmSubsystem implements Subsystem {
         motorConfig.Slot0.kG = Constants.ArmConstants.kG;
         motorConfig.Feedback.RotorToSensorRatio = Constants.ArmConstants.kRotorToSensor;
         motorConfig.MotorOutput.Inverted = Constants.ArmConstants.kInvert;
+
+        motorConfig.CurrentLimits.StatorCurrentLimitEnable = true;
+        motorConfig.CurrentLimits.SupplyCurrentLimitEnable = true;
+        motorConfig.CurrentLimits.StatorCurrentLimit = Constants.ArmConstants.kStatorCurrent;
+        motorConfig.CurrentLimits.SupplyCurrentLimit = Constants.ArmConstants.kSupplyCurrent;
         
         motor.getConfigurator().apply(motorConfig);
 
