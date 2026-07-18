@@ -5,4 +5,7 @@
 package frc.robot.subsystems.Spindexer;
 
 /** Add your docs here. */
-public class SpindexerConstants {}
+public class SpindexerConstants {
+    public static final double SPINDEXER_KP = .5; //Need to find these values from yesterday
+    public static final double SPINDEXER_KV = .5; //Need to find these values from yesterday
+}
