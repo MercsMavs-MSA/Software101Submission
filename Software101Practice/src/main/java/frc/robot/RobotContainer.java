@@ -10,6 +10,9 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.subsystems.Pivot.PivotSubsystem;
 import frc.robot.subsystems.Pivot.PivotConstants;
+import frc.robot.subsystems.IntakeRollers.IntakeRollersSubsystem;
+import frc.robot.subsystems.IntakeRollers.IntakeRollersConstants;
+
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -20,6 +23,8 @@ import frc.robot.subsystems.Pivot.PivotConstants;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final PivotSubsystem pivot = new PivotSubsystem();
+  private final IntakeRollersSubsystem roller = new IntakeRollersSubsystem();
+
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
   private final CommandXboxController m_operatorController =
@@ -47,6 +52,11 @@ public class RobotContainer {
       Commands.runOnce(() -> pivot.goToPosition(PivotConstants.PIVOT_SCORE_POS)));
     m_operatorController.b().onTrue(
       Commands.runOnce(() -> pivot.goToPosition(PivotConstants.PIVOT_SCORE_POS2)));
+    m_operatorController.x().onTrue(
+      Commands.runOnce(() -> roller.goToVelocity(IntakeRollersConstants.ROLLERS_VOLT_TARGET)));
+    m_operatorController.y().onTrue(
+      Commands.runOnce(() -> roller.goToVelocity(IntakeRollersConstants.ROLLERS_VOLT_TARGET2)));
+    
     
 
 
