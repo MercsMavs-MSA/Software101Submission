@@ -17,7 +17,7 @@ import com.ctre.phoenix6.signals.InvertedValue;
 public final class SpindexerConstants {
   public static InvertedValue INVERTED = InvertedValue.Clockwise_Positive;
   public static double GEAR_RATIO = 10.0;
-  public static double SPINDEXER_KV = 1.1;
+  public static double SPINDEXER_KV = 1.2;
   public static int SPINDEXER_MOTOR_ID = 43;
   public static int SUPPLY_LIMIT = 40;
   public static int STATOR_LIMIT = 80;
