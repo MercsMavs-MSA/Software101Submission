@@ -14,10 +14,10 @@ package frc.robot.subsystems.spindexer;
  */
 public final class SpindexerConstants {
     public static int kDriverControllerPort;
-    public static final int SPINDEXER_MOTOR_ID = 0; //TODO: add in the motor id
+    public static final int SPINDEXER_MOTOR_ID = 43; //TODO: add in the motor id
     public static final double SPINDEXER_KD = 0; //TODO: add in the value with robot testing
     public static final double SPINDEXER_KP = 0; //TODO: add in the value with robot testing
-    public static final double SPINDEXER_KV = 0.11; //TODO: add in the value with robot testing
+    public static final double SPINDEXER_KV = .11; //TODO: add in the value with robot testing
     public static final double SPINDEXER_KG = 0; //TODO: add in the value with robot testing
     public static final double SPINDEXER_STATOR_CURRENT_LIMIT = 60;
     public static final double SPINDEXER_SENSOR_TO_MECHANISM_RATIO = 5.0 *(30.0/15.0);
