@@ -7,30 +7,39 @@ package frc.robot.subsystems.Arm;
 import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.controls.PositionVoltage;
 import com.ctre.phoenix6.hardware.TalonFX;
+import com.ctre.phoenix6.signals.NeutralModeValue;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class ArmSubsystem extends SubsystemBase {
-    private final TalonFX armMotor =
+  private final TalonFX armMotor = 
       new TalonFX(Constants.ARM_MOTOR_ID);
+
   private final PositionVoltage request =
       new PositionVoltage(0);
 
   /** Creates a new ArmSubsystem. */
   public ArmSubsystem() {
-    var cfg = new TalonFXConfiguration();
+    TalonFXConfiguration cfg = new TalonFXConfiguration();
     cfg.Slot0.kP = Constants.ARM_KP;  // from tuning
     cfg.Slot0.kD = Constants.ARM_KD;
     cfg.Slot0.kG = Constants.ARM_KG;  // hold vs gravity
+    cfg.MotorOutput.NeutralMode = NeutralModeValue.Brake;
+    cfg.CurrentLimits.SupplyCurrentLimit = 20; 
+    cfg.CurrentLimits.SupplyCurrentLimitEnable = true;
+    cfg.CurrentLimits.StatorCurrentLimit = 20; 
+    cfg.CurrentLimits.StatorCurrentLimitEnable = true;
+    cfg.Feedback.SensorToMechanismRatio = 36.0;
     armMotor.getConfigurator().apply(cfg);
+
 
   }
   
-  @Override
   public void goToPosition(double rotations) {
     armMotor.setControl(
       request.withPosition(rotations));
     // This method will be called once per scheduler run
+
   }
 }

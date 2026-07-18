@@ -16,4 +16,10 @@ public final class Constants {
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
   }
+
+  public static final int ARM_MOTOR_ID = 34;
+  public static final double ARM_KP = 55.0;
+  public static final double ARM_KD = 0;
+  public static final double ARM_KG = 0.4;
+  public static final double ARM_SCORE_POS = -0.2;
 }
