@@ -12,15 +12,16 @@ package frc.robot.subsystems.arm;
  * <p>It is advised to statically import this class (or one of its inner classes) wherever the
  * constants are needed, to reduce verbosity.
  */
-public final class ArmConstants {
+public final class PivotConstants {
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
-    public static final int ARM_MOTOR_ID = 67; //figure out what this is
-    public static final double ARM_KP = 140.0;
-    public static final double ARM_KD = 0.0;
-    public static final double ARM_KG = 0.0;
-    public static final double ARM_FINAL_POS = 0.2;
-    public static final double ARM_STATOR = 60.0;
-    public static final double ARM_SUPPLY = 30.0;
+    public static final int PIVOT_MOTOR_ID = 67; //figure out what this is
+    public static final double PIVOT_KP = 140.0;
+    public static final double PIVOT_KD = 0.0;
+    public static final double PIVOT_KG = 0.0;
+    public static final double PIVOT_OG_POS = 0.0;
+    public static final double PIVOT_FINAL_POS = 0.2;
+    public static final double PIVOT_STATOR = 60.0;
+    public static final double PIVOT_SUPPLY = 30.0;
   }
 }

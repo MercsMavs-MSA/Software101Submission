@@ -7,7 +7,8 @@ package frc.robot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
-import frc.robot.subsystems.arm.ArmConstants;
+import frc.robot.subsystems.arm.PivotConstants;
+import frc.robot.subsystems.arm.PivotSubsystem;
 import frc.robot.subsystems.arm.ArmSubsystem;
 
 /**
@@ -36,11 +37,12 @@ public class RobotContainer {
    * PS4} controllers or {@link edu.wpi.first.wpilibj2.command.button.CommandJoystick Flight
    * joysticks}.
    */
-  private final ArmSubsystem arm = new ArmSubsystem();
-  private final CommandXboxController m_driverController = new CommandXboxController(ArmConstants.OperatorConstants.kDriverControllerPort);
+  private final PivotSubsystem pivot = new PivotSubsystem();
+  private final CommandXboxController m_driverController = new CommandXboxController(PivotConstants.OperatorConstants.kDriverControllerPort);
   private void configureBindings() {
     //Schedule runOnce() when a button is pressed
-    m_driverController.a().onTrue(arm.runOnce(() -> arm.goToPosition(ArmConstants.OperatorConstants.ARM_FINAL_POS)));
+    m_driverController.a().onTrue(pivot.runOnce(() -> pivot.goToPosition(PivotConstants.OperatorConstants.PIVOT_FINAL_POS)));
+    m_driverController.b().onTrue(pivot.runOnce(() -> pivot.goToPosition(PivotConstants.OperatorConstants.PIVOT_OG_POS)));
   }
 
   /**
