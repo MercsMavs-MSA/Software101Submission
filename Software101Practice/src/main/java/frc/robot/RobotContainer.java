@@ -45,6 +45,9 @@ public class RobotContainer {
 
     m_operatorController.a().onTrue(
       Commands.runOnce(() -> pivot.goToPosition(PivotConstants.PIVOT_SCORE_POS)));
+    m_operatorController.b().onTrue(
+      Commands.runOnce(() -> pivot.goToPosition(PivotConstants.PIVOT_SCORE_POS2)));
+    
 
 
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`

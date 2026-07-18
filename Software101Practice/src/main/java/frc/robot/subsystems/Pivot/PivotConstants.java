@@ -20,6 +20,7 @@ public final class PivotConstants {
     public static final double PIVOT_KG = 0.20019;
     public static final int PIVOT_MOTOR_ID = 31;
     public static final double PIVOT_SCORE_POS = 0.39;
+    public static final double PIVOT_SCORE_POS2 = 0.0;
     public static final double PIVOT_STATOR = 60.0;
     public static final double PIVOT_SUPPLY = 30.0;
     public static final int PIVOT_GEAR_RATIO = 110;
