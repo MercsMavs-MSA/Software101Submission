@@ -39,7 +39,8 @@ public class RobotContainer {
    */
   private void configureBindings() {
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
-    driver.a().onTrue(spindexer.runOnce( () -> spindexer.setSpindexerSpeed(1.0)));
+    driver.a().onTrue(spindexer.runOnce( () -> spindexer.setSpindexerSpeed(30.0)));
+    driver.a().onFalse(spindexer.runOnce( () -> spindexer.setSpindexerSpeed(0.0)));
 
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
