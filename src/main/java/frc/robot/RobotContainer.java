@@ -9,7 +9,6 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.subsystems.arm.PivotConstants;
 import frc.robot.subsystems.arm.PivotSubsystem;
-import frc.robot.subsystems.arm.ArmSubsystem;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -23,6 +22,8 @@ public class RobotContainer {
   // Replace with CommandPS4Controller or CommandJoystick if needed
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
+  private final PivotSubsystem pivot = new PivotSubsystem();
+  private final CommandXboxController m_driverController = new CommandXboxController(PivotConstants.OperatorConstants.kDriverControllerPort);
   public RobotContainer() {
     // Configure the trigger bindings
     configureBindings();
@@ -37,8 +38,7 @@ public class RobotContainer {
    * PS4} controllers or {@link edu.wpi.first.wpilibj2.command.button.CommandJoystick Flight
    * joysticks}.
    */
-  private final PivotSubsystem pivot = new PivotSubsystem();
-  private final CommandXboxController m_driverController = new CommandXboxController(PivotConstants.OperatorConstants.kDriverControllerPort);
+  
   private void configureBindings() {
     //Schedule runOnce() when a button is pressed
     m_driverController.a().onTrue(pivot.runOnce(() -> pivot.goToPosition(PivotConstants.OperatorConstants.PIVOT_FINAL_POS)));

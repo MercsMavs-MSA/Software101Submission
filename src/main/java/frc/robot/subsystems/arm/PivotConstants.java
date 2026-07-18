@@ -15,7 +15,7 @@ package frc.robot.subsystems.arm;
 public final class PivotConstants {
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
-    public static final int PIVOT_MOTOR_ID = 67; //figure out what this is
+    public static final int PIVOT_MOTOR_ID = 31; //figure out what this is
     public static final double PIVOT_KP = 140.0;
     public static final double PIVOT_KD = 0.0;
     public static final double PIVOT_KG = 0.0;
