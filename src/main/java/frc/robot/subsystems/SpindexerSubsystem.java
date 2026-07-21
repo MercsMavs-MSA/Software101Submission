@@ -21,7 +21,6 @@ public class SpindexerSubsystem extends SubsystemBase {
     }
 
     /**
-     * Drives the spindexer at a target velocity.
      * @param rps Target speed in Rotations Per Second
      */
     public void spinAtVelocity(double rps) {

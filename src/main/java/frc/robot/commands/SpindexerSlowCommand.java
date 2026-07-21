@@ -27,6 +27,6 @@ public class SpindexerSlowCommand extends Command {
 
     @Override
     public boolean isFinished() {
-        return false; // Run continuously while the command/button is active
+        return false;
     }
 }

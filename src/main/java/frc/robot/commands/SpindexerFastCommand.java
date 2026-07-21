@@ -22,7 +22,6 @@ public class SpindexerFastCommand extends Command {
 
     @Override
     public void end(boolean interrupted) {
-        // SAFETY: Stop the motor when this command stops
         m_spindexer.spinAtVelocity(SpindexerConstants.STOP_VELOCITY);
     }
 
