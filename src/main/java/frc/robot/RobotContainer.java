@@ -44,7 +44,12 @@ public class RobotContainer {
     driver.a().onTrue(
       transfer.runOnce(() ->
         transfer.runTransfer(TransferConstants.Target_Velocity)));
+    driver.a().onFalse(
+      transfer.runOnce(() ->
+        transfer.runTransfer(0)));
   }
+
+  
 
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
