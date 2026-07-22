@@ -17,8 +17,8 @@ package frc.robot.subsystems.Transfer;
 public final class TransferConstants {
   public final static int TRANSFER_MOTOR_ID = 24;
   public final static double GEAR_RATIO = 1.0;
-  public final static double kP = 0.3545;
-  public final static double kV = 0.444;
+  public final static double kP = 0.21;
+  public final static double kV = 0.15;
   public final static int Stator_Limiter = 35;
   public final static int Supply_Limiter = 30;
   public final static int Target_Velocity = 15;
