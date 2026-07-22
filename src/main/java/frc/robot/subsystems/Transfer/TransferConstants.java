@@ -19,7 +19,7 @@ public final class TransferConstants {
   public final static double GEAR_RATIO = 1.0;
   public final static double kP = 0.21;
   public final static double kV = 0.15;
-  public final static int Stator_Limiter = 35;
-  public final static int Supply_Limiter = 30;
+  public final static int Stator_Limiter = 60;
+  public final static int Supply_Limiter = 40;
   public final static int Target_Velocity = 15;
 }
