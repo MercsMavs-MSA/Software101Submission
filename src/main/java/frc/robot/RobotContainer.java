@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj2.command.Commands;
 
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import frc.robot.subsystems.Wheel.WheelConstants;
 import frc.robot.subsystems.Wheel.WheelSubsystem;
 
 /**
@@ -24,6 +25,8 @@ public class RobotContainer {
   // Replace with CommandPS4Controller or CommandJoystick if needed
   private final CommandXboxController m_driverController =
       new CommandXboxController(0);
+
+  private final TeleopCommands teleopComs = new TeleopCommands(wheelSubsystem, new WheelConstants());
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -52,6 +55,10 @@ public class RobotContainer {
     
     m_driverController.leftTrigger().onFalse(slowCommand);
     m_driverController.rightTrigger().onFalse(slowCommand);
+
+    //I'm using the bumpers because the last slide is unfinished and the triggers are in use already
+    m_driverController.leftBumper().onTrue(teleopComs.seqRangeWheel());
+    m_driverController.rightBumper().onTrue(teleopComs.parrCommand());
     
   }
 
