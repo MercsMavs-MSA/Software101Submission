@@ -4,9 +4,10 @@ import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.controls.VelocityVoltage;
 import com.ctre.phoenix6.hardware.TalonFX;
 
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
-public class WheelSubsystem {
+public class WheelSubsystem extends SubsystemBase { // It didn't extend subsystem base why
     //TODO: FIX MOTOR ID
     private final TalonFX wheelMotor = new TalonFX(Constants.WHEEL_MOTOR_ID);
 
@@ -19,7 +20,6 @@ public class WheelSubsystem {
         cfg.Slot0.kP = 0;
         cfg.CurrentLimits.StatorCurrentLimit = 60;
         cfg.CurrentLimits.StatorCurrentLimitEnable = true;
-        cfg.Feedback.SensorToMechanismRatio = 
         wheelMotor.getConfigurator().apply(cfg);
     }
 
