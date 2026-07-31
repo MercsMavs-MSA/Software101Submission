@@ -38,4 +38,18 @@ public class TeleopCommands {
             wheelSub.setVelocity(0);
         }, wheelSub));
     }
+
+    public Command parrCommand() {
+        return Commands.runOnce(() -> {
+            wheelSub.setVelocity(10);
+        }, wheelSub)
+        
+        .andThen(Commands.waitSeconds(5))
+        
+        .andThen(Commands.runOnce(() -> {
+            wheelSub.setVelocity(0);
+        }, wheelSub))
+        
+        .alongWith(Commands.print("Hello I am a message being printed I love to be printed printing a message printed"));
+    }
 }
