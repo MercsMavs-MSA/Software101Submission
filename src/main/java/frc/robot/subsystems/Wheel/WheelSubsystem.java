@@ -31,4 +31,8 @@ public class WheelSubsystem extends SubsystemBase { // It didn't extend subsyste
     {
         wheelMotor.setControl(request.withVelocity(rps));
     }
+
+    public double getVelocity() {
+        return wheelMotor.getVelocity().getValueAsDouble();
+    }
 }
