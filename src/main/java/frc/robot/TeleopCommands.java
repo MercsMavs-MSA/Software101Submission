@@ -23,6 +23,6 @@ public class TeleopCommands
             Commands.run(() -> spindexer.setVelocity(15)),
             Commands.repeatingSequence(Commands.print("Hi the velocity is " + spindexer.getVelocity())),
             Commands.waitUntil(() -> {return spindexer.getVelocity() >= 15;})
-        );
+        ).andThen(Commands.runOnce(() -> spindexer.setVelocity(0)));
     }
 }
