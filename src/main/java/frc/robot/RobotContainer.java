@@ -18,6 +18,8 @@ import frc.robot.subsystems.Wheel.WheelSubsystem;
  * subsystems, commands, and trigger mappings) should be declared here.
  */
 public class RobotContainer {
+
+  TeleopCommands teleopCommands;
   // The robot's subsystems and commands are defined here...
   public final WheelSubsystem wheelSubsystem = new WheelSubsystem();
 
@@ -28,6 +30,7 @@ public class RobotContainer {
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the trigger bindings
+    teleopCommands = new TeleopCommands(wheelSubsystem);
     configureBindings();
   }
 
@@ -53,6 +56,9 @@ public class RobotContainer {
     m_driverController.leftTrigger().onFalse(slowCommand);
     m_driverController.rightTrigger().onFalse(slowCommand);
     
+    m_driverController.a().onTrue(teleopCommands.printRunCommand());
+    m_driverController.b().onTrue(teleopCommands.sequentialCommand());
+
   }
 
   /**

@@ -19,7 +19,7 @@ public class WheelSubsystem {
         cfg.Slot0.kP = 0;
         cfg.CurrentLimits.StatorCurrentLimit = 60;
         cfg.CurrentLimits.StatorCurrentLimitEnable = true;
-        cfg.Feedback.SensorToMechanismRatio = 
+        cfg.Feedback.SensorToMechanismRatio = 10;
         wheelMotor.getConfigurator().apply(cfg);
     }
 
@@ -30,5 +30,10 @@ public class WheelSubsystem {
     public void setVelocity(double rps)
     {
         wheelMotor.setControl(request.withVelocity(rps));
+    }
+
+    public double getVelocity()
+    {
+        return wheelMotor.getVelocity().getValueAsDouble();
     }
 }
