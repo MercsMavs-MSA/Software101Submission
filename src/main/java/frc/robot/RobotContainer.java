@@ -5,6 +5,7 @@
 package frc.robot;
 
 import frc.robot.Constants.OperatorConstants;
+import frc.robot.commands.TeleopCommands;
 import frc.robot.subsystems.Intake;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
@@ -23,6 +24,7 @@ public class RobotContainer {
   private final Intake intake = new Intake();
   private final CommandXboxController m_driverController =
       new CommandXboxController(OperatorConstants.kDriverControllerPort);
+      private final TeleopCommands teleopCommands = new TeleopCommands(intake);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -44,11 +46,12 @@ public class RobotContainer {
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
       m_driverController.leftBumper().onTrue(Commands.runOnce(() -> intake.goToPosition(.235)));
       m_driverController.rightBumper().onTrue(Commands.runOnce(() -> intake.goToPosition(0)));
+      m_driverController.leftTrigger().onTrue(teleopCommands.runSetpointSequence());
+      m_driverController.rightTrigger().onTrue(teleopCommands.runArmWithConsolePrint());
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
     
   }
-
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
    *
