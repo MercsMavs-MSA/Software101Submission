@@ -60,7 +60,9 @@ public class TeleopCommands extends Command {
             Commands.waitSeconds(1),
             Commands.runOnce(() -> wheelSub.setVelocity(wheelCon.nearMaxRPS), wheelSub),
             Commands.waitSeconds(1)
-        );
+        )
+        
+        .finallyDo(() -> wheelSub.setVelocity(0));
     }
 
     public Command parrCommand() {
@@ -68,11 +70,8 @@ public class TeleopCommands extends Command {
             Commands.run(() -> wheelSub.setVelocity(10), wheelSub),
             Commands.run(() -> Commands.print("Wheel spinning. Wheel velocity is " + wheelSub.getVelocity() + " rps.")),
             Commands.waitSeconds(5)
-        );
-    }
-
-    @Override
-    public void end(boolean interrupted) {
-        wheelSub.setVelocity(0);
+        )
+        
+        .finallyDo(() -> wheelSub.setVelocity(0));
     }
 }
