@@ -7,6 +7,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import frc.robot.commands.TeleopCommands;
 import frc.robot.subsystems.spindexer.SpindexerSubsystem;
 import frc.robot.subsystems.spindexer.SpindexerConstants.OperatorConstants;
 
@@ -22,6 +23,7 @@ public class RobotContainer {
       new CommandXboxController(OperatorConstants.kDriverControllerPort);
 
   private final SpindexerSubsystem spindexer = new SpindexerSubsystem();
+  private final TeleopCommands commands = new TeleopCommands(spindexer);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -42,5 +44,8 @@ public class RobotContainer {
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
     m_driverController.a().onTrue(spindexer.runOnce(() -> spindexer.run(10)));
     m_driverController.b().onTrue(spindexer.runOnce(() -> spindexer.stop()));
+
+    m_driverController.x().onTrue(commands.sequentialCommand());
+    m_driverController.y().onTrue(commands.raceCommand());
   }
 }
