@@ -48,6 +48,11 @@ public class ArmSubsystem extends SubsystemBase {
     intakePivot.setControl(request.withPosition(rotations));
   }
 
+  public double getRotation(){
+    return intakePivot.getPosition().getValueAsDouble();
+  }
+  
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

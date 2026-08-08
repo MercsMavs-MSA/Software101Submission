@@ -7,10 +7,12 @@ package frc.robot;
 import frc.robot.Constants.OperatorConstants;
 // import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ArmSubsystem;
+import frc.robot.subsystems.TeleopCommands;
 // import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -21,6 +23,7 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final ArmSubsystem m_ArmSubsystem  = new ArmSubsystem();
+  private final TeleopCommands m_TeleopCommands = new TeleopCommands(m_ArmSubsystem);
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
   private final CommandXboxController m_driverController =
@@ -48,10 +51,17 @@ public class RobotContainer {
 
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
+
+
     m_driverController.a().onTrue((m_ArmSubsystem.runOnce(() -> m_ArmSubsystem.goToPosition(0.23))));
 
     // Revert position when the Xbox controller's B button is pressed.
     m_driverController.b().onTrue((m_ArmSubsystem.runOnce(() -> m_ArmSubsystem.goToPosition(0.0))));
+
+
+    m_driverController.rightTrigger().onTrue((m_TeleopCommands.moveArmSetpoint()));
+
+    m_driverController.leftTrigger().onTrue((m_TeleopCommands.raceArmSet()));
   }
   //.23 rotations 
 
