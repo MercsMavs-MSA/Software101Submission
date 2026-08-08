@@ -45,7 +45,7 @@ public class RobotContainer {
     m_driverController.a().onTrue(spindexer.runOnce(() -> spindexer.run(10)));
     m_driverController.b().onTrue(spindexer.runOnce(() -> spindexer.stop()));
 
-    m_driverController.x().onTrue(commands.sequentialCommand());
-    m_driverController.y().onTrue(commands.raceCommand());
+    m_driverController.x().whileTrue(commands.sequentialCommand());
+    m_driverController.y().whileTrue(commands.raceCommand());
   }
 }
