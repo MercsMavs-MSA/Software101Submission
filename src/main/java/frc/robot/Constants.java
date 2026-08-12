@@ -4,6 +4,7 @@
 
 package frc.robot;
 
+import com.ctre.phoenix6.signals.InvertedValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 
 /**
@@ -24,6 +25,7 @@ public final class Constants {
   public static double statorLimit = 40.0;
   public static boolean statorLimEnable = true;
   public static double gearRatio = 24.0/1.0;
+  public static InvertedValue invert = InvertedValue.CounterClockwise_Positive;
 
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;

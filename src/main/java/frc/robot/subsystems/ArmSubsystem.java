@@ -7,8 +7,6 @@ package frc.robot.subsystems;
 import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.controls.PositionVoltage;
 import com.ctre.phoenix6.hardware.TalonFX;
-import com.ctre.phoenix6.signals.InvertedValue;
-import com.ctre.phoenix6.signals.NeutralModeValue;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
@@ -20,7 +18,7 @@ public class ArmSubsystem extends SubsystemBase {
 
   /** Creates a new ArmSubsystem. */
   public ArmSubsystem() {
-    intakePivot = new TalonFX(42); //TODO: Change device ID
+    intakePivot = new TalonFX(42);
     TalonFXConfiguration cfg  = new TalonFXConfiguration(); 
     
     cfg.Slot0.kP = Constants.intakeKP;
@@ -32,7 +30,7 @@ public class ArmSubsystem extends SubsystemBase {
     cfg.CurrentLimits.StatorCurrentLimitEnable = Constants.statorLimEnable;
 
     cfg.MotorOutput.NeutralMode = Constants.NeutralMode;
-    cfg.MotorOutput.Inverted = InvertedValue.CounterClockwise_Positive;
+    cfg.MotorOutput.Inverted = Constants.invert;
     cfg.Feedback.SensorToMechanismRatio = Constants.gearRatio;
 
     intakePivot.getConfigurator().apply(cfg);

@@ -25,7 +25,8 @@ public class TeleopCommands extends Command{
    public Command para(){
 
     return Commands.race(
-        arm.runOnce(() -> arm.goToPosition(0.25)),
-        Commands.print("Hello World"));
+        arm.run(() -> arm.goToPosition(0.25)),
+        Commands.run(() -> Commands.print("Hello World")),
+        Commands.waitSeconds(5));
    }
 }
