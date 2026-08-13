@@ -24,6 +24,8 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final PivotSubsystem pivot = new PivotSubsystem();
   private final IntakeRollersSubsystem roller = new IntakeRollersSubsystem();
+  private final TeleopCommands commandsPivot = new TeleopCommands(pivot);
+  private final TeleopCommands commandsRoller = new TeleopCommands(roller);
 
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
@@ -56,7 +58,10 @@ public class RobotContainer {
       Commands.runOnce(() -> roller.goToVelocity(IntakeRollersConstants.ROLLERS_VOLT_TARGET)));
     m_operatorController.y().onTrue(
       Commands.runOnce(() -> roller.goToVelocity(IntakeRollersConstants.ROLLERS_VOLT_TARGET2)));
-    
+    m_operatorController.leftBumper().onTrue(commandsPivot.sequentialCommandPivot());
+    m_operatorController.rightBumper().onTrue(commandsRoller.sequentialCommandRoller());
+    m_operatorController.leftStick().onTrue(commandsPivot.parallelRacePivot());
+    m_operatorController.rightStick().onTrue(commandsRoller.parallelRaceRoller());
     
 
 
