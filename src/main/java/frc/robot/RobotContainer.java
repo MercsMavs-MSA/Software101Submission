@@ -24,6 +24,7 @@ public class RobotContainer {
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   private final PivotSubsystem pivot = new PivotSubsystem();
   private final CommandXboxController m_driverController = new CommandXboxController(PivotConstants.OperatorConstants.kDriverControllerPort);
+  private final TeleopCommands TeleopCommands = new TeleopCommands(pivot);
   public RobotContainer() {
     // Configure the trigger bindings
     configureBindings();
@@ -43,6 +44,8 @@ public class RobotContainer {
     //Schedule runOnce() when a button is pressed
     m_driverController.a().onTrue(pivot.runOnce(() -> pivot.goToPosition(PivotConstants.OperatorConstants.PIVOT_FINAL_POS)));
     m_driverController.b().onTrue(pivot.runOnce(() -> pivot.goToPosition(PivotConstants.OperatorConstants.PIVOT_OG_POS)));
+    m_driverController.x().onTrue(pivot.runOnce(() -> TeleopCommands.moveUp()));
+    m_driverController.y().onTrue(pivot.runOnce(() -> TeleopCommands.moveBack()));
   }
 
   /**

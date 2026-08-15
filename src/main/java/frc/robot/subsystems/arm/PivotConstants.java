@@ -20,7 +20,8 @@ public final class PivotConstants {
     public static final double PIVOT_KD = 0.0;
     public static final double PIVOT_KG = 0.0;
     public static final double PIVOT_OG_POS = 0.0;
-    public static final double PIVOT_FINAL_POS = 0.2;
+    public static final double PIVOT_MID_POS = 0.5;
+    public static final double PIVOT_FINAL_POS = 1.0;
     public static final double PIVOT_STATOR = 60.0;
     public static final double PIVOT_SUPPLY = 30.0;
   }
