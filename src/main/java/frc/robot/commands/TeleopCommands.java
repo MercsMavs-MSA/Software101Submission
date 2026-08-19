@@ -34,14 +34,15 @@ public class TeleopCommands {
 
 	public Command raceCommand() {
 		return Commands.race(
-			Commands.runOnce(() -> {
+			Commands.run(() -> {
 				spindexer.run(10);
 			}, spindexer),
-			Commands.runOnce(() -> {
+			Commands.run(() -> {
 				for (int i = 0; i < 10; i++) {
 					System.out.println("printing");
 				}
-			})
+			}),
+			Commands.waitSeconds(5)
 		);
 	}
 }
