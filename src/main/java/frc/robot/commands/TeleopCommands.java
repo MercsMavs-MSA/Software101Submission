@@ -25,7 +25,8 @@ public class TeleopCommands {
     public Command runArmWithConsolePrint() {
         return Commands.race(
             Commands.run(() -> intake.goToPosition(0.5), intake),
-            Commands.print("Intake setpoint active!")
+            Commands.run(() -> Commands.print("Intake setpoint active!")),
+            Commands.waitSeconds(5)
         );
     }
 }

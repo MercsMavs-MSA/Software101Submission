@@ -8,4 +8,3 @@ public final class IntakeConstants {
     public static final double statorlimit = 60;
     public static final double supplylimit = 40;
 }
-
