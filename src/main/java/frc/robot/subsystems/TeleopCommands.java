@@ -28,7 +28,8 @@ public class TeleopCommands {
 			return 
 				Commands.race(
 					Commands.run(() -> arm.goToPosition(0.15)),
-					Commands.run(() -> Commands.print("Setpoint Reached")))
+					Commands.run(() -> Commands.print("Setpoint Reached")),
+					Commands.waitSeconds(1))
 					.andThen(Commands.runOnce(() -> arm.goToPosition(0)));
 		}	
 }
