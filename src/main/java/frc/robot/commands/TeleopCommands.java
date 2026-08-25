@@ -20,9 +20,9 @@ public class TeleopCommands {
         return Commands.sequence(
             Commands.runOnce(() -> wheel.setVelocity(0.01), wheel),
             Commands.waitSeconds(1.0),
-            Commands.runOnce(() -> wheel.setVelocity(0.5), wheel), // TODO: Get actual midway setpoint (or use TalonFX.setThrotle()?)
+            Commands.runOnce(() -> wheel.setVelocity(4.0), wheel), 
             Commands.waitSeconds(1.0),
-            Commands.runOnce(() -> wheel.setVelocity(1.0), wheel), // TODO: get actual full speed setpoint (or use TalonFX.setThrotle()?)
+            Commands.runOnce(() -> wheel.setVelocity(8.0), wheel), 
             Commands.waitSeconds(1.0),
             Commands.runOnce(() -> wheel.setVelocity(0.0), wheel)
         );
@@ -30,7 +30,11 @@ public class TeleopCommands {
 
     public Command parrelelCommand() // i cant spell
     {
-        return null;
+        return Commands.race(
+            Commands.runOnce(() -> wheel.setVelocity(8.0), wheel),
+            Commands.print("Motor is running!!"),
+            Commands.waitSeconds(5)
+        ); 
     }
 
 }
