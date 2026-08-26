@@ -17,7 +17,7 @@ public final class Constants {
     public static final int kDriverControllerPort = 0;
   }
 
-public static final int WHEEL_MOTOR_ID = 0;
-public static double WHEEL_KP;
-public static double WHEEL_KD;
+public static final int WHEEL_MOTOR_ID = 43;
+public static double WHEEL_KV = 1.05;
+// public static double WHEEL_KD;
 }

@@ -13,16 +13,16 @@ public class WheelSubsystem extends SubsystemBase {
   private final VelocityVoltage request = 
     new VelocityVoltage (0);
 
-public WheelSubsystem() {
-  var cfg = new TalonFXConfiguration();
-  cfg.Slot0.kP = Constants.WHEEL_KP;
-  cfg.Slot0.kD = Constants.WHEEL_KD;
-  cfg.Slot0.kG = Constants.WHEEL_KP;
-  wheelMotor.getConfigurator().apply(cfg);
-}
+  public WheelSubsystem() {
+    var cfg = new TalonFXConfiguration();
 
-public void goToVelocity (double rotations) {
-  wheelMotor.setControl (
-    request.withAcceleration (rotations));
-}
+    cfg.Slot0.kV = Constants.WHEEL_KV;
+
+    wheelMotor.getConfigurator().apply(cfg);
+  }
+
+  public void goToVelocity (double rotations) {
+    wheelMotor.setControl (
+      request.withVelocity(rotations));
+  }
 }

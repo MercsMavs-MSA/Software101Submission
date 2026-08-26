@@ -21,7 +21,7 @@ public class RobotContainer {
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
   private final CommandXboxController m_driverController =
-      new CommandXboxController(OperatorConstants.kDriverControllerPort);
+    new CommandXboxController(OperatorConstants.kDriverControllerPort);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -53,14 +53,18 @@ public class RobotContainer {
     // An example command will be run in autonomous
     return null;
   }
-private final WheelSubsystem wheel = 
-  new WheelSubsystem ();
-private final CommandXboxController driver = 
-  new CommandXboxController (0);
+  private final WheelSubsystem wheel = 
+    new WheelSubsystem ();
+  private final CommandXboxController driver = 
+    new CommandXboxController (0);
 
-private void configureBindings () {
-  driver.a().onTrue(
-    wheel.runOnce(() -> 
-      wheel.goToVelocity(8)));
-}}
+  private void configureBindings () {
+    driver.a().onTrue(
+      wheel.runOnce(() -> 
+        wheel.goToVelocity(8)));
+    driver.a().onFalse(
+      wheel.runOnce(() ->
+        wheel.goToVelocity(0)));
+  }
+}
 
