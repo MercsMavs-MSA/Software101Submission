@@ -31,10 +31,10 @@ public class TeleopCommands {
     public Command parrelelCommand() // i cant spell
     {
         return Commands.race(
-            Commands.runOnce(() -> wheel.setVelocity(8.0), wheel),
+            Commands.run(() -> wheel.setVelocity(8.0), wheel),
             Commands.print("Motor is running!!"),
             Commands.waitSeconds(5)
-        ); 
+        ).andThen(Commands.runOnce(() -> wheel.setVelocity(0.0), wheel)); 
     }
 
 }
