@@ -17,7 +17,11 @@ public class WheelSubsystem extends SubsystemBase {
     var cfg = new TalonFXConfiguration();
 
     cfg.Slot0.kV = Constants.WHEEL_KV;
-
+    cfg.CurrentLimits.StatorCurrentLimitEnable = true;
+    cfg.CurrentLimits.StatorCurrentLimit = 80;
+    cfg.CurrentLimits.SupplyCurrentLimitEnable = true;
+    cfg.CurrentLimits.SupplyCurrentLimit = 60;
+    cfg.Feedback.SensorToMechanismRatio = 8.75;
     wheelMotor.getConfigurator().apply(cfg);
   }
 
