@@ -17,11 +17,11 @@ public final class Constants {
     public static final int kDriverControllerPort = 0;
   }
 
-  public static final int SPINDEXER_MOTOR_ID = 0;
+  public static final int SPINDEXER_MOTOR_ID = 43;
 
-  public static final double SPINDEXER_KP = 0;
+  public static final double SPINDEXER_KP = 1.05;
   public static final double SPINDEXER_KD = 0;
   public static final double SPINDEXER_KG = 0;
 
-  public static final int SPINDEXER_GEAR_RATIO = 0;
+  public static final double SPINDEXER_GEAR_RATIO = 8.75;
 }
