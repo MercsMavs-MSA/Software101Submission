@@ -13,12 +13,13 @@ package first.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-  public static final int ARM_MOTOR_ID = 1;
-  public static final double  ARM_KP = .1;
-  public static final double ARM_KI = 0;
-  public static final double  ARM_KD = 0;
-  public static final double[] ARM_FEEDFORWARD = { 0 , 0, 0,0 }; // S, V, A , G
-  public static final double ARM_SCORE_POS = .7;
+  public static final int WHEEL_MOTOR_ID = 1;
+  public static final double  WHEEL_KP = .1;
+  public static final double WHEEL_KI = 0;
+  public static final double  WHEEL_KD = 0;
+  public static final double[] WHEEL_FEEDFORWARD = { 0 , 0, 0,0 }; // S, V, A , G
+  public static final double WHEEL_SPIN_VEL = .7;
+  public static final double SPINDEXER_GEAR_RATIO = 1;
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
     

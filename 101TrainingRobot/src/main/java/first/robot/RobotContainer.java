@@ -10,7 +10,7 @@ import org.wpilib.command2.button.Trigger;
 import first.robot.Constants.OperatorConstants;
 import first.robot.commands.Autos;
 import first.robot.commands.ExampleCommand;
-import first.robot.subsystems.Arm;
+import first.robot.subsystems.WheelSubsystem;
 import first.robot.subsystems.ExampleSubsystem;
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -38,13 +38,12 @@ public class RobotContainer {
    * subclasses for {@link CommandGamepad Gamepad} gamepads or {@link
    * org.wpilib.command2.button.CommandJoystick Flight joysticks}.
    */
-   private final Arm arm = new Arm();
+   private final WheelSubsystem wheel = new WheelSubsystem();
    
  
 private void configureBindings() {
-  driverController.button(1).onTrue( arm.runOnce(() ->
-      arm.goToPosition(Constants.ARM_SCORE_POS))
-);
+  driverController.button(1).onTrue( wheel.runOnce(() ->
+      wheel.setVelocity(Constants.WHEEL_SPIN_VEL);
 }
 
 
