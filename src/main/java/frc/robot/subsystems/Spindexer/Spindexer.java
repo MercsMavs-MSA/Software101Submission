@@ -1,46 +1,43 @@
-// Copyright (c) FIRST and other WPILib contributors.
-// Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
-
 package frc.robot.subsystems.Spindexer;
 
-import com.ctre.phoenix6.controls.PositionVoltage;
+import com.ctre.phoenix6.configs.CurrentLimitsConfigs;
+import com.ctre.phoenix6.configs.Slot0Configs;
+import com.ctre.phoenix6.configs.TalonFXConfiguration;
+import com.ctre.phoenix6.configs.TalonFXConfigurator;
 import com.ctre.phoenix6.controls.VelocityVoltage;
 import com.ctre.phoenix6.hardware.TalonFX;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-
-import javax.print.attribute.standard.RequestingUserName;
-import javax.security.auth.login.ConfigurationSpi;
-
-import com.ctre.phoenix6.configs.TalonFXConfiguration;
+import frc.robot.Constants;
 
 public class Spindexer extends SubsystemBase {
-  private final TalonFX SpindexerMotor = new TalonFX(11); //TODO: CHANGE ID TO WHAT IT NEEDS TO BE
-  private final VelocityVoltage request = new VelocityVoltage(0);
- 
-  public Spindexer() {
-    TalonFXConfiguration config = new TalonFXConfiguration();
-    
-    config.CurrentLimits.StatorCurrentLimit = 60.0;
-    config.CurrentLimits.StatorCurrentLimitEnable = true;
-    
-    config.CurrentLimits.SupplyCurrentLimit = 30.0;
-    config.CurrentLimits.SupplyCurrentLimitEnable = true;
-    
-    config.Feedback.SensorToMechanismRatio = 10.0;
 
-    
+    private final TalonFX SpindexerMotor = new TalonFX(Constants.SPINDEXER_MOTOR_ID);
 
-    config.Slot0.kV = SpindexerConstants.SPINDEXER_KV;  // from tuning |What's the issue?
-    config.Slot0.kP = SpindexerConstants.SPINDEXER_KP;
-    
-    
-    SpindexerMotor.getConfigurator().apply(config); //csg
-  }
+    TalonFXConfiguration configs = new TalonFXConfiguration()
+    .withCurrentLimits(new CurrentLimitsConfigs()
+    .withStatorCurrentLimit(80)
+    .withStatorCurrentLimitEnable(true));
 
-  public void setVelocity(double rotations){
-    SpindexerMotor.setControl(request.withVelocity(rotations));
+    VelocityVoltage request = new VelocityVoltage(0);
 
-  }
+
+    public Spindexer() {
+        configs.Slot0.kP = 0.1;
+        configs.Slot0.kI = 0;
+        configs.Slot0.kD = 0;
+        configs.Slot0.kV = 1.0; 
+        configs.Feedback.SensorToMechanismRatio = 10.0;
+        SpindexerMotor.getConfigurator().apply(configs);
+    }
+
+    public void setVelocity(double velocity) {
+        SpindexerMotor.setControl(request.withVelocity(velocity));
+    }
+
+    public double getVelocity() {
+      return SpindexerMotor.getVelocity().getValueAsDouble();
+    }
+
+    public void periodic() {}
 }
