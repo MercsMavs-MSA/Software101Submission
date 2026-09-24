@@ -10,6 +10,7 @@ import org.wpilib.command2.button.Trigger;
 import first.robot.Constants.OperatorConstants;
 import first.robot.commands.Autos;
 import first.robot.commands.ExampleCommand;
+import first.robot.commands.TeleOpCommand;
 import first.robot.subsystems.WheelSubsystem;
 import first.robot.subsystems.ExampleSubsystem;
 /**
@@ -39,11 +40,15 @@ public class RobotContainer {
    * org.wpilib.command2.button.CommandJoystick Flight joysticks}.
    */
    private final WheelSubsystem wheel = new WheelSubsystem();
-   
+  
+   TeleOpCommand teleOpCommands = new TeleOpCommand(wheel); 
  
 private void configureBindings() {
+
   driverController.button(1).onTrue( wheel.runOnce(() ->
-      wheel.setVelocity(Constants.WHEEL_SPIN_VEL);
+      wheel.setVelocity(Constants.WHEEL_SPIN_VEL)));
+  driverController.button(2).onTrue( teleOpCommands.extremeSetpoints());
+  driverController.leftBumper().onTrue(teleOpCommands.printParalellRun());
 }
 
 
