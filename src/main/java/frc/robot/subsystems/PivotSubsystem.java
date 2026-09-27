@@ -37,6 +37,10 @@ public final class PivotSubsystem extends SubsystemBase {
     pivotMotor.setControl(positionRequest.withPosition(rotations));
 
   }
+
+  public double getPosition() {
+    return pivotMotor.getPosition().getValueAsDouble();
+}
   
 }
 
