@@ -5,6 +5,7 @@
 package frc.robot;
 
 import frc.robot.Constants.OperatorConstants;
+import frc.robot.commands.TeleopCommands;
 import frc.robot.subsystems.Kicker;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
@@ -19,6 +20,8 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
  */
 public class RobotContainer {
   private Kicker kicker = new Kicker();
+  private TeleopCommands teleop = new TeleopCommands(kicker); 
+  
   // The robot's subsystems and commands are defined here...
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
@@ -46,6 +49,10 @@ public class RobotContainer {
     // cancelling on release.
     m_driverController.a().onTrue(Commands.runOnce(() -> kicker.goToVelocity(20)));
     m_driverController.a().onFalse(Commands.runOnce(() -> kicker.goToVelocity(0)));
+
+    m_driverController.x().onTrue(teleop.sequential()); 
+    m_driverController.y().onTrue(teleop.parallel());
+
   }
 
   /**
