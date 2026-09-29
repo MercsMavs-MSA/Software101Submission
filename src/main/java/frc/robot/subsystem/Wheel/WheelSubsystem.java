@@ -1,4 +1,4 @@
-package frc.robot.subsystems.Wheel;
+package frc.robot.subsystem.Wheel;
 
 import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.controls.VelocityVoltage;
@@ -27,8 +27,9 @@ public class WheelSubsystem {
 
     /**
      * Set velocity of the wheelMotor
-     * @param rps Desired velocity in rotations per second
+     * @param rps Desired velocity in rotations per second.
      */
+    //.
     public void setVelocity(double rps)
     {
         wheelMotor.setControl(request.withVelocity(rps));
