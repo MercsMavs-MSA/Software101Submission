@@ -7,7 +7,6 @@ import com.ctre.phoenix6.hardware.TalonFX;
 import frc.robot.Constants;
 
 public class WheelSubsystem {
-    //TODO: FIX MOTOR ID
     private final TalonFX wheelMotor = new TalonFX(Constants.WHEEL_MOTOR_ID);
 
     private final VelocityVoltage request = new VelocityVoltage(0);
@@ -25,16 +24,14 @@ public class WheelSubsystem {
         wheelMotor.getConfigurator().apply(cfg);
     }
 
-    /**
-     * Set velocity of the wheelMotor
-     * @param rps Desired velocity in rotations per second.
-     */
-    //.
     public void setVelocity(double rps)
     {
         wheelMotor.setControl(request.withVelocity(rps));
     }
-
+    /**
+     * Set velocity of the wheelMotor
+     * @param rps Desired velocity in rotations per second.
+     */
     public double getVelocity()
     {
         return wheelMotor.getVelocity().getValueAsDouble();
