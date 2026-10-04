@@ -19,7 +19,7 @@ public class TeleOpCommand {
     public Command printParalellRun(){
         return Commands.parallel(Commands.run(() -> wheel.setVelocity(.5), wheel), 
         Commands.run(() -> System.out.println("This command is running")),
-         Commands.waitSeconds(2), null)
+        Commands.waitSeconds(2), null)
         .andThen(Commands.runOnce(() -> wheel.setVelocity(0), wheel));
 
     }
