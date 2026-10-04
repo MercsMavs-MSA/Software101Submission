@@ -22,18 +22,14 @@ public class KickerSubsystem extends SubsystemBase {
  
   public KickerSubsystem() {
     TalonFXConfiguration config = new TalonFXConfiguration();
-
     config.CurrentLimits.StatorCurrentLimit = 60.0;
     config.CurrentLimits.SupplyCurrentLimit = 30.0;
     config.CurrentLimits.SupplyCurrentLimitEnable = true;
     config.CurrentLimits.StatorCurrentLimitEnable = true;
-
     config.Feedback.SensorToMechanismRatio = TransferConstants.KICKER_GEAR_RATIO;
-    var talonFXConfig = new TalonFXConfiguration();
-    talonFXConfig.Slot0.kV = TransferConstants.KICKER_KV;
-    talonFXConfig.Slot0.kS = TransferConstants.KICKER_KS;
-    
-    kickerMotor.getConfigurator().apply(talonFXConfig);
+    config.Slot0.kV = TransferConstants.KICKER_KV;
+    config.Slot0.kS = TransferConstants.KICKER_KS;
+    kickerMotor.getConfigurator().apply(config);
   }
  
   public void goToVelocity(double velocity) {

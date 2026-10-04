@@ -18,6 +18,9 @@ public final class TransferConstants {
     public static final double KICKER_KV = 0.152;
     public static final double KICKER_KS = 0.32;
     public static final double KICKER_VELOCITY = 50;
+    public static final double KICKER_ANTI_JAM_VELOCITY = -50;
+    public static final double KICKER_LOW_VELOCITY = 5;
+    public static final double KICKER_MID_VELOCITY = KICKER_VELOCITY / 2;
     public static final double KICKER_GEAR_RATIO = 1.5;
   
 }

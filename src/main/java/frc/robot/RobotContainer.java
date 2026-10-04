@@ -7,6 +7,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import frc.robot.commands.TeleopCommands;
 import frc.robot.subsystems.transfer.KickerSubsystem;
 import frc.robot.subsystems.transfer.TransferConstants;
 
@@ -20,12 +21,7 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final KickerSubsystem kicker = new KickerSubsystem();
   private final CommandXboxController driver = new CommandXboxController(0);
-  
-
-
-  // Replace with CommandPS4Controller or CommandJoystick if needed
-  private final CommandXboxController m_driverController =
-      new CommandXboxController(0);
+  private final TeleopCommands teleopCommands = new TeleopCommands(kicker);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -48,12 +44,11 @@ public class RobotContainer {
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
 
-    driver.a().onTrue(
-    kicker.runOnce(() ->
-      kicker.goToVelocity(TransferConstants.KICKER_VELOCITY)));
-    driver.a().onFalse(
-    kicker.runOnce(() ->
-      kicker.goToVelocity(0)));
+    driver.rightBumper().whileTrue(teleopCommands.runKicker());
+    driver.leftBumper().whileTrue(teleopCommands.kickerAntiJam());
+    driver.rightTrigger().onTrue(teleopCommands.rampUpSequence());
+    driver.x().onTrue(teleopCommands.spin());
+    driver.y().onTrue(teleopCommands.rampSequence());
       
   }
 
