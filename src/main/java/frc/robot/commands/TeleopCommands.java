@@ -41,11 +41,13 @@ public class TeleopCommands {
         return Commands.sequence(
             Commands.race(
                 Commands.run(() -> kicker.goToVelocity(TransferConstants.KICKER_VELOCITY), kicker),
-                Commands.print("Kicker spinning forward").andThen(Commands.waitSeconds(3))
+                Commands.print("Kicker spinning forward").andThen(Commands.idle()),
+                Commands.waitSeconds(3)
             ),
             Commands.race(
                 Commands.run(() -> kicker.goToVelocity(TransferConstants.KICKER_ANTI_JAM_VELOCITY), kicker),
-                Commands.print("Kicker spinning in reverse").andThen(Commands.waitSeconds(3))
+                Commands.print("Kicker spinning in reverse").andThen(Commands.idle()),
+                Commands.waitSeconds(3)
             )
         ).finallyDo(() -> kicker.goToVelocity(0));
     }
@@ -53,8 +55,9 @@ public class TeleopCommands {
     public Command rampSequence() {
         return Commands.race(
             Commands.run(() -> kicker.goToVelocity(TransferConstants.KICKER_MID_VELOCITY), kicker),
-            Commands.print("Kicker running at mid setpoint").andThen(Commands.waitSeconds(3))
-        ) .finallyDo(() -> kicker.goToVelocity(0));
+            Commands.print("Kicker running at mid setpoint").andThen(Commands.idle()),
+            Commands.waitSeconds(3)        
+            ) .finallyDo(() -> kicker.goToVelocity(0));
     }
 
 }
